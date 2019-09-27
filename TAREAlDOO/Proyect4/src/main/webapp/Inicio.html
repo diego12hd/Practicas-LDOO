@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Reloj</title>
+		<script type = "text/javascript">
+			function reloj(){
+				var fecha = new Date();
+				var hora = fecha.getHours();
+				var min = fecha.getMinutes();
+				if(min < 10){min = "0" + min; }
+				var seg = fecha.getSeconds();
+				if(seg < 10){ seg = "0" +seg;}
+				var r = setTimeout('reloj()', 1000)
+				document.getElementById('h').innerHTML = hora+":"+min+":"+seg;
+					if(seg%2 === 0){
+						document.getElementById("body").style.backgroundImage = "url(Lugar.webp)";
+
+					}
+					else{
+						document.getElementById("body").style.backgroundImage = "url(Universo.jpg)";
+					}
+			}
+		</script>
+		<style type ="text/css">
+			#body{
+				background: url(Universo.jpg)no-repeat center top;
+				color: green;
+			}
+			h1{
+				color: blue;
+				background-color: white;
+			}
+		</style>
+    </head>
+    <body onload="reloj()" id="body">
+        <center><h1 id="h"></h1></center>
+        <form name="f1"method="post"action="obtener">
+            <input type="text"name="Nombre" id="Nombre">
+            <input type="text"name="Correo" id="Correo">
+            <input type="number"name="Edad" id="Edad">
+            <input type="submit"name="Enviar" id="Pedir Orden">
+	</form>
+    </body>
+</html>
