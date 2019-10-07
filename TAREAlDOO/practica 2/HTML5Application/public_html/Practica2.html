@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Reloj</title>
+        <script type="text/javascript">
+            function reloj(){
+                var fecha = new Date();
+                var hora = fecha.getHours();
+                var min = fecha.getMinutes();
+                if(min<10){
+                    min = "0" + min;
+                }
+                var seg = fecha.getSeconds();
+                if(seg<10){
+                    seg = "0" + seg;
+                }
+                var r = setTimeout('reloj()',1000);
+                document.getElementById('h').innerHTML = hora+": "+min+": "+seg;
+                var det = hora % 2;
+                if(det==B){
+                    det = 'blue';
+                    document.getElementById("body").sytle.backgroudImage = "url(descarga.jpg) no-repeat center top";
+                }
+                else{
+                    det = 'green';
+                    document.getElementById("body").sytle.backgroudImage = "url(r.jpg) no-repeat center top";
+                }
+            }
+        </script>
+        <style type="text/css">
+            body{
+                background: blue;
+            }
+        </style>
+    </head>
+    <body onload ="reloj()">
+        <div id="h"></div>
+    </body>
+</html>
